@@ -10,8 +10,8 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import os 
 from security_keys import access_key, secret_key
-ACCESS_KEY=os.environ['ACCESS_KEY']
-SECRET_KEY=os.environ['SECRET_KEY']
+# ACCESS_KEY=os.environ['ACCESS_KEY']
+# SECRET_KEY=os.environ['SECRET_KEY']
 class Image_scraper:
 
     """
@@ -62,7 +62,7 @@ class Image_scraper:
         time.sleep(2)
         elem = self.driver.find_element(
             By.CSS_SELECTOR,
-            '#__next > div > div.sc-d040ow-3.kCqGcl > nav > div.sc-1xf18x6-0.bSaLsG > div.sc-1xf18x6-0.sc-1twd32i-0.hzdGQw.kKpYwv > div > div > div > div > div > input[type=text]',
+            '#__next > div > div.sc-d040ow-3.kCqGcl > nav > div.sc-1xf18x6-0.bSaLsG > div.sc-1xf18x6-0.sc-1twd32i-0.hzdGQw.kKpYwv > div > div > div > div > div > input[type=search]',
         )
 
         elem.send_keys(collection)
@@ -92,7 +92,8 @@ class Image_scraper:
         """
 
         self.driver.switch_to.window(self.driver.window_handles[1])
-        session = boto3.Session(aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=SECRET_KEY)
+        # session = boto3.Session(aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=SECRET_KEY)
+        session = boto3.Session(aws_access_key_id= access_key, aws_secret_access_key=secret_key)
         s3 = session.resource("s3")
         for i in range(len(links) - 1):
             self.driver.get(links[i + 1])

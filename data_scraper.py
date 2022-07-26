@@ -14,8 +14,8 @@ import os
 from security_keys import (
     password,
 )  # build your own security_key.py file, please check readme
-PASSWORD = os.environ['PASSWORD']
-
+# PASSWORD = os.environ['PASSWORD']
+PASSWORD = password
 class NFT_scraper:
 
     """
@@ -116,7 +116,8 @@ class NFT_scraper:
         # change to your own AWS RDS address
         ENDPOINT = "nfts.cftyhhxl7vmx.eu-west-2.rds.amazonaws.com"
         USER = "postgres"
-        PASSWORD = secrets.PASSWORD
+        # PASSWORD = secrets.PASSWORD
+        PASSWORD = password
         PORT = 5432
         DATABASE = "postgres"
         engine = create_engine(
