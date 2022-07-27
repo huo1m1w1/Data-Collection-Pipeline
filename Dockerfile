@@ -14,13 +14,13 @@ RUN apt-get -y update
 RUN apt-get install -y google-chrome-stable
 
 # get chromedriver
-RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+# RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
 
 # get unzip package
-RUN apt-get install -yqq unzip
+# RUN apt-get install -yqq unzip
 
 # unzip chromedriver
-RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+# RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
 # copy requiremnts/packages needed, and get installed
 COPY requirements.txt requirements.txt 
